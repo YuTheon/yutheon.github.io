@@ -1,153 +1,74 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>动画文字</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f9e7e7;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        .container {
-            position: relative;
-            width: 100%;
-            height: 150px;
-            overflow: hidden;
-        }
-        
-        .text-container {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            font-weight: bold;
-            color: #ff3366;
-        }
-        
-        .pig-image {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-            animation: pigWiggle 3s ease-in-out infinite;
-        }
-        
-        .character {
-            display: inline-block;
-            font-size: 36px;
-            animation: charShake 0.5s ease-in-out infinite;
-        }
-        
-        .character:nth-child(odd) {
-            animation-delay: 0.1s;
-        }
-        
-        .character:nth-child(even) {
-            animation-delay: 0.3s;
-        }
-        
-        .character:nth-child(3n) {
-            animation-delay: 0.2s;
-        }
-        
-        @keyframes moveText {
-            0% {
-                left: 100%;
-            }
-            30% {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            70% {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            100% {
-                left: -50%;
-            }
-        }
-        
-        @keyframes charShake {
-            0%, 100% { transform: translateY(0); }
-            25% { transform: translateY(-5px); }
-            75% { transform: translateY(5px); }
-        }
-        
-        @keyframes pigWiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-5deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(5deg); }
-        }
-        
-        .text-animation {
-            animation: moveText 8s ease-in-out infinite;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的GitHub主页</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ce82);
+      background-size: 400%;
+      animation: gradient 15s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .dots {
+      font-size: 2rem;
+      display: inline-block;
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0% { content: "."; }
+      33% { content: ".."; }
+      66% { content: "..."; }
+      100% { content: "."; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="text-container text-animation">
-            <svg class="pig-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- 猪的身体 - 更圆润 -->
-                <ellipse cx="50" cy="60" rx="40" ry="32" fill="#ffb6c1"/>
-                
-                <!-- 猪的头 - 更圆 -->
-                <circle cx="50" cy="40" r="28" fill="#ffb6c1"/>
-                
-                <!-- 猪的耳朵 - 更大更圆 -->
-                <ellipse cx="28" cy="22" rx="12" ry="14" fill="#ffb6c1" transform="rotate(-20, 28, 22)"/>
-                <ellipse cx="72" cy="22" rx="12" ry="14" fill="#ffb6c1" transform="rotate(20, 72, 22)"/>
-                <ellipse cx="30" cy="24" rx="9" ry="11" fill="#ff9999" transform="rotate(-20, 30, 24)"/>
-                <ellipse cx="70" cy="24" rx="9" ry="11" fill="#ff9999" transform="rotate(20, 70, 24)"/>
-                
-                <!-- 猪的眼睛 - 更大且有光泽 -->
-                <circle cx="40" cy="35" r="6" fill="white"/>
-                <circle cx="60" cy="35" r="6" fill="white"/>
-                <circle cx="42" cy="34" r="3" fill="black"/>
-                <circle cx="62" cy="34" r="3" fill="black"/>
-                <circle cx="43" cy="33" r="1" fill="white"/>
-                <circle cx="63" cy="33" r="1" fill="white"/>
-                
-                <!-- 猪的脸颊 - 添加腮红 -->
-                <circle cx="30" cy="42" r="7" fill="#ff8080" opacity="0.6"/>
-                <circle cx="70" cy="42" r="7" fill="#ff8080" opacity="0.6"/>
-                
-                <!-- 猪的鼻子 - 更可爱 -->
-                <ellipse cx="50" cy="45" rx="11" ry="8" fill="#ff7979"/>
-                <circle cx="45" cy="45" r="2.5" fill="black"/>
-                <circle cx="55" cy="45" r="2.5" fill="black"/>
-                
-                <!-- 猪的嘴 - 微笑 -->
-                <path d="M42,52 Q50,58 58,52" stroke="#ff6666" stroke-width="2" fill="none"/>
-                
-                <!-- 猪的腿 - 更短更可爱 -->
-                <rect x="30" y="82" width="8" height="10" rx="4" fill="#ffb6c1"/>
-                <rect x="62" y="82" width="8" height="10" rx="4" fill="#ffb6c1"/>
-                <rect x="30" y="82" width="8" height="5" rx="2" fill="#ff9999"/>
-                <rect x="62" y="82" width="8" height="5" rx="2" fill="#ff9999"/>
-                
-                <!-- 猪的尾巴 - 卷曲 -->
-                <path d="M85,65 Q95,60 90,55 Q85,50 90,45" stroke="#ffb6c1" stroke-width="5" fill="none"/>
-            </svg>
-            <span>
-                <span class="character">傻</span>
-                <span class="character">子</span>
-                <span class="character">，</span>
-                <span class="character">快</span>
-                <span class="character">来</span>
-                <span class="character">烦</span>
-                <span class="character">我</span>
-            </span>
-        </div>
-    </div>
+  <div class="container">
+    <h1>这里还没有什么内容哦！</h1>
+    <p>别看了，回去吧<span class="dots">...</span></p>
+  </div>
 </body>
 </html>

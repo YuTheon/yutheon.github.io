@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的GitHub主页</title>
+  <title>俞向阳 - 个人主页</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      padding: 40px 20px;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* 保留原有的动态渐变背景 */
       background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ce82);
       background-size: 400%;
       animation: gradient 15s ease infinite;
-      color: #fff;
-      text-align: center;
+      color: #333;
     }
 
     @keyframes gradient {
@@ -25,50 +25,167 @@
       100% { background-position: 0% 50%; }
     }
 
-    .container {
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 2s ease-in-out infinite;
-    }
-
-    p {
-      font-size: 1.5rem;
-      margin-top: 10px;
-      animation: slideUp 1.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0%, 100% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
+    /* 新增毛玻璃质感的简历容器 */
+    .resume-container {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      max-width: 800px;
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+      animation: slideUp 1s ease-out;
     }
 
     @keyframes slideUp {
-      0% { transform: translateY(20px); opacity: 0; }
+      0% { transform: translateY(30px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
 
-    .dots {
-      font-size: 2rem;
-      display: inline-block;
-      animation: dots 1.5s infinite;
+    header {
+      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    @keyframes dots {
-      0% { content: "."; }
-      33% { content: ".."; }
-      66% { content: "..."; }
-      100% { content: "."; }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 10px 0;
+      color: #2c3e50;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-top: 0;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a {
+      color: #45b7d1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #ff6b6b;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      border-left: 4px solid #4ecdc4;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+
+    .item-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .item-date {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .item-subtitle {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-top: 5px;
+      color: #444;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>这里还没有什么内容哦！</h1>
-    <p>别看了，回去吧<span class="dots">...</span></p>
-  </div>
-</body>
-</html>
+
+  <div class="resume-container">
+    <header>
+      <h1>俞向阳</h1>
+      <h2>算法工程师</h2>
+      <div class="contact-info">
+        <span>📱 (+86) 182-5818-4671</span>
+        <span>✉️ <a href="mailto:12432717@mail.sustech.edu.cn">12432717@mail.sustech.edu.cn</a></span>
+        <span>🐙 GitHub: <a href="https://github.com/YuTheon" target="_blank">@YuTheon</a></span>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">个人总结</div>
+      <p>南方科技大学计算机系硕士在读，成绩优异。深耕医学图像处理与多模态大模型交叉领域，掌握Diffusion、CLIP 等前沿技术，有MICCAI投稿及国家级大创经历。性格乐观负责，拥抱技术变革，兼具扎实的后端工程能力(SpringBoot/Python)，能独立完成从算法模型到服务接口的落地。认同开放、连接、共享的Web精神，致力于在CV/AIGC领域创造实际价值。</p>
+    </section>
+
+    <section>
+      <div class="section-title">教育背景</div>
+      
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">南方科技大学</span>
+          <span class="item-date">2024.9 - 2027.6</span>
+        </div>
+        <div class="item-subtitle">计算机科学与技术，在读硕士研究生</div>
+        <p>排名 2/78(前5%)，南方科技大学特等学业奖学金(2次)，高级算法A+、深度学习前沿A、高级人工智能A-、强化学习A-、机器学习B+。</p>
+      </div>
+
+      <div class="item" style="margin-top: 20px;">
+        <div class="item-header">
+          <span class="item-title">南方科技大学</span>
+          <span class="item-date">2020.9 - 2024.6</span>
+        </div>
+        <div class="item-subtitle">计算机科学与技术，工学学士</div>
+        <p>排名54/223(前25%)，全国大学生数学建模国赛省一等奖，全国大学生电子设计竞赛省二等奖，省级大创项目负责人，南方科技大学优秀毕业生。数据结构与算法分析(A)，概率论与数理统计(A-)，计算机网络(A-)，计算机操作系统(A+)，软件工程(A-)。</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">技术能力</div>
+      <ul>
+        <li><strong>编程语言:</strong> Python, Java, SQL, C/C++, Shell</li>
+        <li><strong>操作系统与工程构建:</strong> Linux, MySQL, Git</li>
+        <li><strong>专业技能:</strong> Despeckle, Enhancement, Diffusion Models, PyTorch</li>
+        <li><strong>语言:</strong> TOFEL: 92</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-title">项目经历</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">iOCT 去散斑与增强研究</span>
+          <span class="item-date">2025.08 - 2025.12</span>
+        </div>
+        <div class="item-subtitle">MICCAI在投 / 科研论文</div>
+        <p>针对iOCT成像散斑噪声强且缺乏配对金标准的难题，提出自监督对数域盲点网络框架 MulDiff。通过对数变换解耦噪声，设计门控多尺度微分融合模块(G-MDF)与梯度截断策略，在不破坏盲点约束的前提下有效提取解剖结构细节。实验表明，该方法在EPI、CNR等无参考指标上显著优于AT-BSN等主流模型，有效提升了下游视网膜分层分割精度
